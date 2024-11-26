@@ -1,5 +1,6 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot:>
+    
     <div class="relative">
         <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">    
             <a href="#" class="inline-flex justify-between items-center py-1 px-1 pe-4 mb-7 text-sm text-blue-700 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800">
@@ -22,6 +23,37 @@
     </div>
     <div class="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900 w-full h-full absolute top-0 left-0 z-0"></div>
 </div>
+
+<div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-3 md:grid-cols-3 gap-6 place-items-center">
+      <div class="grayscale hover:grayscale-0 transition-all duration-300">
+        <img 
+          src="{{ asset('images/partner1.png') }}" 
+          alt="Partner Logo 1" 
+          class="h-16 w-auto max-w-full opacity-70 hover:opacity-100"
+        >
+      </div>
+
+      <div class="grayscale hover:grayscale-0 transition-all duration-300">
+        <img 
+          src="{{ asset('images/partner3.png') }}" 
+          alt="Partner Logo 1" 
+          class="h-16 w-auto max-w-full opacity-70 hover:opacity-100"
+        >
+      </div>
+      
+      <div class="grayscale hover:grayscale-0 transition-all duration-300">
+        <img 
+          src="{{ asset('images/partner2.png') }}" 
+          alt="Partner Logo 2" 
+          class="h-16 w-auto max-w-full opacity-70 hover:opacity-100"
+        >
+      </div>
+      
+    </div>
+  </div>
+  
+<x-card-course></x-card-course>
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <div id="accordion-open" data-accordion="open" data-aos="zoom-in">
             <h2 id="accordion-open-heading-1">

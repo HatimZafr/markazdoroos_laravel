@@ -15,7 +15,7 @@
     <div class="min-h-full">    
         <main>
           <x-navbar></x-navbar>
-          <div>
+          <div class="mt-16 sm:mt-6 md:mt-8">
             {{ $slot }}
           </div>
         </main>

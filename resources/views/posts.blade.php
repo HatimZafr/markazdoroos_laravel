@@ -36,33 +36,24 @@
 @forelse ($posts as $post) 
     
 
-    
-                <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                    <div class="flex justify-between items-center mb-5 text-gray-500">
-                        <a href="/posts?category={{ $post->category->slug }}">
-                        <span class="bg-blue-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
-                            {{ $post->category->name }}
-                        </span>
-                        </a>
-                        <span class="text-sm">{{ $post->created_at->diffForHumans() }}</span>
-                    </div>
-                    <a href="/posts/{{ $post->slug }}">
-                    <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $post->title }}</h2></a>
-                    <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ Str::limit(strip_tags($post->content), 150, '...') }}</p>
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center space-x-3">
-                            <img class="w-7 h-7 rounded-full" src="{{ asset('images/markazdoroos.png') }}" alt="" />
-                            <span class="font-medium text-xs dark:text-white">
-                                Markaz Doroos
-                            </span>
-                        </div>
-                    </a>
-                        <a href="/posts/{{ $post->slug }}" class="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline text-sm">
-                            Baca Selengkapnya
-                            <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                        </a>
-                    </div>
-                </article> 
+                
+<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <a href="#">
+        <img class="rounded-t-lg" src="{{ asset('storage/' . $post->image) }}" alt="" />
+    </a>
+    <div class="p-5">
+        <a href="/posts/{{ $post->slug }}">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $post->title }}</h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ Str::limit(strip_tags($post->content), 150, '...') }}</p>
+        <a href="/posts/{{ $post->slug }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Read more
+             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </a>
+    </div>
+</div>
     @empty
     <div><p class="font-semibold text-xl my-4">Article Not Found!!</p>
     <a href="/posts" class="block text-blue-600 hover:underline">&laquo; Back To all Posts</a>
