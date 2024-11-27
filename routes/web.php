@@ -25,6 +25,10 @@ Route::get('/categories/{category:slug}', function (Category $category) {
    return view('posts', ['title' => ' Article in '. $category->name , 'posts' => $category->posts]);
 });
 
+Route::get('/doroos', function () {
+    return view('doroos', ['title' => 'Doroos Page']);
+});
+
 Route::get('/about', function () {
     return view('about', ['title' => 'About Page']);
 });
