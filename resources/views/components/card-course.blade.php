@@ -3,7 +3,7 @@
       <!-- Heading & Filters -->
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white">Paket Dars</h2>
-        <a href="#all-courses" class="text-blue-600 hover:text-blue-800 text-sm font-medium dark:text-blue-400 dark:hover:text-blue-600">
+        <a href="/doroos" class="text-blue-600 hover:text-blue-800 text-sm font-medium dark:text-blue-400 dark:hover:text-blue-600">
             Lihat Semua Paket Dars
         </a>
     </div>
