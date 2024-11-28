@@ -9,6 +9,7 @@ class Enrollments extends Model
 {
     use HasFactory;
 
+    
     protected $fillable = [
         'id_user',
         'id_paket',

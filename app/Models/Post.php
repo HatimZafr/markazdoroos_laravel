@@ -23,6 +23,8 @@ class Post extends Model
         'slug',
         'content'
     ];
+
+    protected $with = ['category'];
     
     public function category(): BelongsTo
     {
