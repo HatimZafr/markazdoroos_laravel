@@ -1,9 +1,9 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot:>
-    <section class="bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-12">
-        <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+    <section class="bg-gray-50 py-8 pt-16 antialiased dark:bg-gray-900 md:py-16">
+        <div class="mx-auto max-w-screen-xl px-6 2xl:px-0">
           <!-- Heading & Filters -->
-          <div class="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8">
+          <div class="mb-8 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-16">
             <div>
               <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white">Paket Dars</h2>
             </div>
@@ -62,5 +62,4 @@
           </div>
         </form>
       </section>
-      
 </x-layout>
