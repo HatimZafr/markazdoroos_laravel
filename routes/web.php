@@ -30,7 +30,7 @@ Route::get('/categories/{category:slug}', function (Category $category) {
 Route::get('/doroos', function () {
     return view('doroos', [
         'title' => 'Doroos Page',
-        'doroos' => Paket::latest()->paginate(9) // Ambil semua doroos dan urutkan berdasarkan yang terbaru
+        'doroos' => Paket::latest()->paginate(8) // Ambil semua doroos dan urutkan berdasarkan yang terbaru
     ]);
 });
 

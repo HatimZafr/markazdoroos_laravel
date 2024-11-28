@@ -17,6 +17,8 @@ class Paket extends Model
         'description',
     ];
 
+    protected $with = ['doroos', 'category', 'enrollments', 'transactions'];
+
     public function category()
     {
         return $this->belongsTo(CategoryPaket::class, 'id_kategori');
