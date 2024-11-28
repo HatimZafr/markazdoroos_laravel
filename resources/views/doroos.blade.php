@@ -5,11 +5,11 @@
           <!-- Heading & Filters -->
           <div class="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8">
             <div>
-              <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Doroos</h2>
+              <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white">Paket Dars</h2>
             </div>
           </div>
           {{ $pakets->links() }}
-          <div class="mb-4 grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4">
+          <div class="mb-4 grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-3">
 
             @forelse($pakets as $paket)
     <!-- Pengecekan apakah Paket memiliki Doroos dengan Dars terkait -->
