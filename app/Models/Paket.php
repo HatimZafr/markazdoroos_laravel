@@ -28,6 +28,7 @@ class Paket extends Model
     {
         return $this->hasMany(Doroos::class, 'id_paket');
     }
+    
 
     public function enrollments()
     {

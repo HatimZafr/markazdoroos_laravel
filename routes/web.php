@@ -28,11 +28,15 @@ Route::get('/categories/{category:slug}', function (Category $category) {
 });
 
 Route::get('/doroos', function () {
+    // Ambil semua Paket beserta Doroos dan Dars terkait
     return view('doroos', [
         'title' => 'Doroos Page',
-        'doroos' => Paket::latest()->paginate(8) // Ambil semua doroos dan urutkan berdasarkan yang terbaru
+        'pakets' => Paket::with('doroos.dars') // Menarik semua Paket dengan relasi Doroos dan Dars terkait
+            ->latest() // Urutkan berdasarkan yang terbaru
+            ->paginate(8), // Paginate hasil
     ]);
 });
+
 
 
 Route::get('/about', function () {
