@@ -21,6 +21,12 @@ class CategoryPaketResource extends Resource
 
     protected static ?string $navigationGroup = 'Paket Management';
 
+    public static function getNavigationSort(): ?int
+    {
+        return 2; // Angka lebih kecil = posisi lebih tinggi di group
+    }
+
+
     public static function form(Form $form): Form
     {
         return $form

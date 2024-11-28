@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('pakets', function (Blueprint $table) {
             $table->id();
+            $table->string('image');
             $table->string('name');
             $table->foreignId('id_kategori')->constrained('category_pakets')->onDelete('cascade');  
             $table->decimal('price', 10, 2);

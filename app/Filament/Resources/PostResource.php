@@ -18,6 +18,12 @@ class PostResource extends Resource
     protected static ?string $model = Post::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-newspaper';
+    protected static ?string $navigationGroup = 'Blog Management';
+
+    public static function getNavigationSort(): ?int
+    {
+        return 1; // Angka lebih kecil = posisi lebih tinggi di group
+    }
 
     public static function form(Form $form): Form
     {

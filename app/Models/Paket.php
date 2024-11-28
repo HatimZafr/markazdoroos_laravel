@@ -10,6 +10,7 @@ class Paket extends Model
     use HasFactory;
 
     protected $fillable = [
+        'image',
         'name',
         'id_kategori',
         'price',

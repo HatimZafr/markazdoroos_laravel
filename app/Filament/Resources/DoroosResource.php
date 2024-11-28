@@ -20,6 +20,11 @@ class DoroosResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
     protected static ?string $navigationGroup = 'Content Management';
 
+    public static function getNavigationSort(): ?int
+    {
+        return 3; // Angka lebih kecil = posisi lebih tinggi di group
+    }
+
     public static function form(Form $form): Form
     {
         return $form

@@ -20,12 +20,23 @@ class PaketResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-check';
     protected static ?string $navigationGroup = 'Paket Management';
 
+    public static function getNavigationSort(): ?int
+    {
+        return 2; // Angka lebih kecil = posisi lebih tinggi di group
+    }
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\Card::make()
                     ->schema([
+
+                    //image
+                    Forms\Components\FileUpload::make('image')
+                    ->label('Image')
+                    ->required(),
+
                         Forms\Components\TextInput::make('name')
                             ->label('Paket Name')
                             ->required(),
@@ -51,6 +62,7 @@ class PaketResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('image')->circular(),
                 Tables\Columns\TextColumn::make('name')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('category.name')->label('Category'),
                 Tables\Columns\TextColumn::make('price')->sortable(),

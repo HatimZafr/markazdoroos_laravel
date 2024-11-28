@@ -19,6 +19,12 @@ class CategoryResource extends Resource
     protected static ?string $model = Category::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-folder';
+    protected static ?string $navigationGroup = 'Blog Management';
+
+    public static function getNavigationSort(): ?int
+    {
+        return 1; // Angka lebih kecil = posisi lebih tinggi di group
+    }
 
     public static function form(Form $form): Form
 {
