@@ -52,9 +52,56 @@
       
     </div>
   </div>
-  
-<x-card-course></x-card-course>
+  <div class="mx-auto max-w-screen-xl px-8 2xl:px-0">
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white">Paket Dars</h2>
+    <a href="/doroos" class="text-blue-600 hover:text-blue-800 text-sm font-medium dark:text-blue-400 dark:hover:text-blue-600">
+        Lihat Semua Paket Dars
+    </a>
+</div>
+  @forelse($pakets as $paket)
+  <!-- Pengecekan apakah Paket memiliki Doroos dengan Dars terkait -->
+  @if($paket->doroos->isNotEmpty() && $paket->doroos->some(fn($doroos) => $doroos->dars->isNotEmpty())) 
+      <!-- Jika ada Doroos yang memiliki Dars terkait dengan Paket -->
+      <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800" data-aos="flip-left">
+          <div class="h-56 w-full">
+              <a href="#">
+                  <img class="mx-auto h-full dark:hidden" src="/storage/{{ $paket->image }}" alt="" />
+                  <img class="mx-auto hidden h-full dark:block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg" alt="" />
+              </a>
+          </div>
+          <div class="pt-6">
+              <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">{{ $paket->name }}</a>
+              <div class="mt-4">
+                  <!-- Tampilkan semua Doroos yang terkait dengan Paket yang memiliki Dars -->
+                  @foreach($paket->doroos as $doroos)
+                      <!-- Pastikan Doroos memiliki Dars terkait -->
+                      @if($doroos->dars->isNotEmpty()) <!-- Hanya tampilkan Doroos yang memiliki Dars -->
+                          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 bg-blue-100 p-2 rounded break-words">
+                              {{ $doroos->name }}
+                          </p>
+                      @endif
+                  @endforeach
+              </div>
 
+              <div class="mt-4 flex items-center justify-between gap-4">
+                  <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">${{ $paket->price }}</p>
+              </div>
+              <div class="flex justify-end">
+                  <button type="button" class="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                      <svg class="-ms-2 me-2 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
+                      </svg>
+                      Add to cart
+                  </button>
+              </div>                       
+          </div>
+      </div>
+  @endif
+@empty
+  <p>Tidak ada item untuk ditampilkan.</p>
+@endforelse
+  </div>
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <div id="accordion-open" data-accordion="open" data-aos="zoom-in">
             <h2 id="accordion-open-heading-1">
@@ -94,10 +141,6 @@
             <div id="accordion-open-body-3" class="hidden" aria-labelledby="accordion-open-heading-3">
               <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
                 <p class="mb-2 text-gray-500 dark:text-gray-400">Pelajari cara mudah untuk bergabung dan mulai perjalanan belajar Anda di Markazdoroos hanya dalam beberapa langkah sederhana.</p>
-                                <ul class="ps-5 text-gray-500 list-disc dark:text-gray-400">
-                  <li><a href="https://flowbite.com/pro/" class="text-blue-600 dark:text-blue-500 hover:underline">Flowbite Pro</a></li>
-                  <li><a href="https://tailwindui.com/" rel="nofollow" class="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
-                </ul>
               </div>
             </div>
           </div>

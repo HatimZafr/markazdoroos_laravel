@@ -7,7 +7,11 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('home', ['title' => 'Home Page']);
+    return view('home', ['title' => 'Home Page',
+    'pakets' => Paket::with('doroos.dars') // Menarik semua Paket dengan relasi Doroos dan Dars terkait
+            ->latest() // Urutkan berdasarkan yang terbaru
+            ->take(3), // Paginate hasil
+    ]);
 });
 
 Route::get('/posts', function () {
