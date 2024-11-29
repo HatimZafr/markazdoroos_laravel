@@ -5,6 +5,8 @@ use App\Models\Paket;
 
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+
 
 Route::get('/', function () {
     return view('home', ['title' => 'Home Page',
@@ -46,3 +48,15 @@ Route::get('/doroos', function () {
 Route::get('/about', function () {
     return view('about', ['title' => 'About Page']);
 });
+
+Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [AuthController::class, 'verify'])->name('auth.verify');
+
+Route::group(['middleware' => 'auth:admin'], function () {
+    Route::get('/admin/home', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
+});
+Route::group(['middleware' => 'auth:user'], function () {
+    Route::get('/user/home', [\App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
+});
+
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
